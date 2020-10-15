@@ -16,6 +16,7 @@ final class HairdresserPriceCalculatorTest extends TestCase
 
         self::assertEquals(5, $hairdresser->calculate());
     }
+
     /** @test */
     public function itShouldCalcualteThePriceForRafa(): void
     {
@@ -23,6 +24,7 @@ final class HairdresserPriceCalculatorTest extends TestCase
 
         self::assertEquals(273650, $hairdresser->calculate());
     }
+
     /** @test */
     public function itNotIt(): void
     {
@@ -30,6 +32,7 @@ final class HairdresserPriceCalculatorTest extends TestCase
 
         self::assertEquals(273650, $hairdresser->calculate());
     }
+
     /** @test */
     public function itNotItNotNot(): void
     {
@@ -37,15 +40,9 @@ final class HairdresserPriceCalculatorTest extends TestCase
 
         self::assertEquals(273650, $hairdresser->calculate());
     }
+
     /** @test */
     public function itYesIt(): void
-    {
-        $hairdresser = new HairdresserPriceCalculator(false, 3);
-
-        self::assertEquals(4.85, $hairdresser->calculate());
-    }
-    /** @test */
-    public function itYesYesIt(): void
     {
         $hairdresser = new HairdresserPriceCalculator(false, 3);
 
