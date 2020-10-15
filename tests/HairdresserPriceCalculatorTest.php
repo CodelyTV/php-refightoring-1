@@ -12,15 +12,14 @@ final class HairdresserPriceCalculatorTest extends TestCase
     /** @test */
     public function itShouldCalculateTheStandardHaridressPrice(): void
     {
-        $hairdresser = new HairdresserPriceCalculator("Javi");
+        $hairdresser = new HairdresserPriceCalculator(false);
 
         self::assertEquals(5, $hairdresser->calculate());
     }
     /** @test */
     public function itShouldCalcualteThePriceForRafa(): void
     {
-        $hairdresser = new HairdresserPriceCalculator("Javi");
-        $hairdresser->setIsRafa();
+        $hairdresser = new HairdresserPriceCalculator(true);
 
         self::assertEquals(273650, $hairdresser->calculate());
     }

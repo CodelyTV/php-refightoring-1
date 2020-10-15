@@ -6,11 +6,11 @@ namespace CodelyTv;
 
 final class HairdresserPriceCalculator
 {
-    public $isRafa;
+    private bool $isRafa;
 
-    public function setIsRafa(): void
+    public function __construct(bool $isRafa)
     {
-        $this->isRafa = true;
+        $this->isRafa = $isRafa;
     }
 
     public function calculate()
@@ -20,13 +20,5 @@ final class HairdresserPriceCalculator
         } else {
             return 5;
         }
-    }
-
-    /**
-     * @var string $hi lerelen weiugf wkfwj fwg fiw i fuweo
-     */
-    public function hi(string $hi)
-    {
-        return 8;
     }
 }
