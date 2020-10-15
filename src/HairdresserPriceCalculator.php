@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace CodelyTv;
 
-final class Hairdresser
+final class HairdresserPriceCalculator
 {
     public $isRafa;
 
-    public function isRafa(): void
+    public function setIsRafa(): void
     {
         $this->isRafa = true;
     }
 
-    public function evilThingIdon_knowHowTodo()
+    public function calculate()
     {
         if (!(!$this->isRafa)) {
-        return 5 + 273645;
+            return 5 + 273645;
         } else {
             return 5;
         }
