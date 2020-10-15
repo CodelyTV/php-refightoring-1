@@ -10,13 +10,23 @@ final class HairdresserPriceCalculator
     private const         EXTRA_PRICE_FOR_RAFA         = 273645;
     private const         PAYMENT_METHOD_METALIC       = 3;
     const                 DISCOUNT_PER_METALIC_PAYMENT = 0.97;
-    private int       $payment;
+    private int       $paymentMethod;
     private bool      $isRafa;
 
-    public function __construct(bool $isRafa, int $payment)
+    private function __construct(bool $isRafa, int $paymentMethod)
     {
-        $this->isRafa  = $isRafa;
-        $this->payment = $payment;
+        $this->isRafa        = $isRafa;
+        $this->paymentMethod = $paymentMethod;
+    }
+
+    public static function rafa(int $payment): self
+    {
+        return new self(true, $payment);
+    }
+
+    public static function normalPerson(int $payment): self
+    {
+        return new self(false, $payment);
     }
 
     public function calculate(): float
@@ -27,7 +37,7 @@ final class HairdresserPriceCalculator
             return self::STANDARD_PRICE + self::EXTRA_PRICE_FOR_RAFA;
         }
 
-        if ($this->payment === self::PAYMENT_METHOD_METALIC) {
+        if ($this->paymentMethod === self::PAYMENT_METHOD_METALIC) {
             return self::STANDARD_PRICE * self::DISCOUNT_PER_METALIC_PAYMENT;
         }
 

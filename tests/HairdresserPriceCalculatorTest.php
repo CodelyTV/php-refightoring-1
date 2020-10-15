@@ -12,7 +12,7 @@ final class HairdresserPriceCalculatorTest extends TestCase
     /** @test */
     public function itShouldCalculateTheStandardHaridressPrice(): void
     {
-        $hairdresser = new HairdresserPriceCalculator(false, 1);
+        $hairdresser = HairdresserPriceCalculator::normalPerson(1);
 
         self::assertEquals(5, $hairdresser->calculate());
     }
@@ -20,23 +20,23 @@ final class HairdresserPriceCalculatorTest extends TestCase
     /** @test */
     public function itShouldCalcualteThePriceForRafa(): void
     {
-        $hairdresser = new HairdresserPriceCalculator(true, 2);
+        $hairdresser = HairdresserPriceCalculator::rafa(2);
 
         self::assertEquals(273650, $hairdresser->calculate());
     }
 
     /** @test */
-    public function itNotIt(): void
+    public function itShouldHaveNoDiscountCalculatingTheStandardPriceForRafaPayingInMetalic(): void
     {
-        $hairdresser = new HairdresserPriceCalculator(true, 3);
+        $hairdresser = HairdresserPriceCalculator::rafa(3);
 
         self::assertEquals(273650, $hairdresser->calculate());
     }
 
     /** @test */
-    public function itNotItNotNot(): void
+    public function itShouldCalculateTheRafaPriceWithNoMetalicMethod(): void
     {
-        $hairdresser = new HairdresserPriceCalculator(true, 1);
+        $hairdresser = HairdresserPriceCalculator::rafa(1);
 
         self::assertEquals(273650, $hairdresser->calculate());
     }
@@ -44,7 +44,7 @@ final class HairdresserPriceCalculatorTest extends TestCase
     /** @test */
     public function itYesIt(): void
     {
-        $hairdresser = new HairdresserPriceCalculator(false, 3);
+        $hairdresser = HairdresserPriceCalculator::normalPerson(3);
 
         self::assertEquals(4.85, $hairdresser->calculate());
     }
