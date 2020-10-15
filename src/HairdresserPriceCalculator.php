@@ -13,12 +13,12 @@ final class HairdresserPriceCalculator
         $this->isRafa = $isRafa;
     }
 
-    public function calculate()
+    public function calculate(): int
     {
-        if (!(!$this->isRafa)) {
+        if ($this->isRafa) {
             return 5 + 273645;
-        } else {
-            return 5;
         }
+
+        return 5;
     }
 }
