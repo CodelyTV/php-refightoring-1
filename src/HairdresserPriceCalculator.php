@@ -6,6 +6,8 @@ namespace CodelyTv;
 
 final class HairdresserPriceCalculator
 {
+    private const STANDARD_PRICE       = 5;
+    private const EXTRA_PRICE_FOR_RAFA = 273645;
     private bool $isRafa;
 
     public function __construct(bool $isRafa)
@@ -16,9 +18,9 @@ final class HairdresserPriceCalculator
     public function calculate(): int
     {
         if ($this->isRafa) {
-            return 5 + 273645;
+            return self::STANDARD_PRICE + self::EXTRA_PRICE_FOR_RAFA;
         }
 
-        return 5;
+        return self::STANDARD_PRICE;
     }
 }
